@@ -1,0 +1,60 @@
+<a id="anchor_2621637426850887"></a>
+<!----Musician list---->
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Number</mat-label>
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput
+      [formControl]="sampleController.myControl_Musicians" [matAutocomplete]="auto">
+    <mat-autocomplete (optionSelected)="GetValueFromControl($event)" #auto="matAutocomplete">
+      <mat-option *ngFor="let option of sampleController.filteredOptions_Musicians | async" [value]="option.name">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<!---Showing musician values--->
+<a id="anchor_0011906650773065852"></a>
+<label>THE SELECTED VALUE IS: {{sampleController.selectedMusicianID}}</label>
+
+<hr>
+
+<a id="anchor_23201508506521984"></a>
+<!---Musician table--->
+<div class="m_tableMiddle PaintTable" style="width: 50%">
+  <div>
+    <div style="height: 40px;width: 60%">NAME</div>
+    <div style="width:10%">ID</div>
+    <div style="width:auto">Linstenig Counter</div>
+  </div>
+  <div *ngFor="let item of sampleController.musicianDatas.namesAndID">
+    <div style="height: 30px">{{item.name}}</div>
+    <div style="height: 30px;text-align: center">{{sampleController.GetValue(item.name)}}</div>
+    <div style="height: 30px;text-align: center">{{sampleController.CountingListeningTimes(item.id)}}</div>
+  </div>
+</div>
+<hr>
+<div id="map" style="width: 50%;height: 300px;margin:0px auto"></div>
+<hr>
+
+
+
+<input value="TEST PYTHON" type="button" (click)="TestPython()">
+<a id="anchor_23201508506521984"></a>
+<!---Musician table--->
+<div class="m_tableMiddle PaintTable" style="width: 50%">
+  <div>
+    <div style="height: 40px;width: 60%">שם</div>
+    <div style="width:auto">זהוי</div>
+
+  </div>
+  <div *ngFor="let item of sampleController.pythonArr">
+    <div style="height: 30px;text-align:right">{{item.mkey}}</div>
+    <div style="height: 30px;text-align: center">{{item.mvalue}}</div>
+  </div>
+</div>
+<br>
+<input value="TEST NEWID" type="button" (click)="TestNewID()">
+<span>&nbsp;</span>
+<label> {{sampleController.mNewID}} </label>
+<br>
+<br>

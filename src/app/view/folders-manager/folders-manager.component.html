@@ -1,0 +1,232 @@
+<div class="container mt-3">
+
+
+
+  <div class="m_tableMiddle">
+    <!----SEARCH COMPONENTS-->
+    <div>
+      <div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="COPY"><img src="../../../assets/icons/scissors.svg"></mat-button-toggle>
+          <mat-button-toggle value="CUT"><img src="../../../assets/icons/clipboard.svg"></mat-button-toggle>
+          <mat-button-toggle value="PASTE"><img src="../../../assets/icons/clipboard-check.svg"></mat-button-toggle>
+        </mat-button-toggle-group>
+        <div style="width: 30px;display:inline-block;"></div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="COPY"><img src="../../../assets/icons/arrow-90deg-up.svg"></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+
+    <div>
+      <div>
+
+
+
+
+
+        <mat-form-field class="example-full-width" style="width: 100%;">
+          <mat-label> <img src="../../../assets/icons/search.svg" /> {{foldersManagerController.labelSearch}}
+          </mat-label>
+          <input matInput placeholder="Search" value="">
+        </mat-form-field>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button [checked]="true" (click)="SetLabelSearch(2)" style="width: 120px" value="1">Current
+          </mat-radio-button>
+          <mat-radio-button (click)="SetLabelSearch(1)" value="2">All</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <!---- TITLE CURRENT FOLDER --->
+
+
+
+
+    <div>
+      <div>
+
+
+
+
+
+      </div>
+    </div>
+    <div>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+
+  <div class="m_tableMiddle">
+    <div>
+      <div style="width: 50px;">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="orange" class="bi bi-folder"
+  viewBox="0 0 16 16">
+  <path
+    d="M.54 3.87L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
+</svg>
+
+      </div>
+      <div>DEFAULT</div>
+    </div>
+  </div>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item" style="width: unset">
+      <a class="nav-link active" data-toggle="tab" href="#home">
+        <div class="m_tableMiddle">
+          <div>
+            <div><img src="../../../assets/icons/folder-symlink.svg" /></div>
+
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">
+
+        <img src="../../../assets/icons/handbag.svg" />
+
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">
+        <img src="../../../assets/icons/file-earmark-richtext.svg" />
+
+      </a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active" style="border: solid 1px#dee2e6;border-top:0px"><br>
+      <div class="m_tableMiddle">
+      </div>
+      <h3>FOLDERS</h3>
+      <div class="m_tableMiddle">
+        <div>
+          <div style="width: 30px;">
+            <img [hidden]="foldersManagerController.addFolder.length !== 0" src="../../../assets/icons/folder-plus.svg">
+            <img [hidden]="foldersManagerController.addFolder.length === 0" src="../../../assets/icons/save.svg">
+          </div>
+          <div><input placeholder="Add new folder" [value]="foldersManagerController.addFolder"
+              [(ngModel)]="foldersManagerController.addFolder" type="text" class="form-control" id="usr"></div>
+        </div>
+        <div>
+          <div>
+          </div>
+          <div>
+            <br>
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let item of foldersManagerController.mArraySample" class="example-box" cdkDrag>
+
+
+
+
+
+                <div class="m_tableMiddle" style="width: 100%">
+                  <div>
+                    <div style="width: 20px;border-right: solid 1px silver;">
+                      <div style="width: 13px;height: 15px">
+                        <input type="checkbox" />
+                      </div>
+                    </div>
+                    <div style="width: 5px;"></div>
+                    <div style="width: 20px">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="orange" class="bi bi-folder"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M.54 3.87L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div style="width: auto">
+
+                      <span style="font-size: 14pt;font-weight: bold;color:maroon"> {{item}} </span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="m_tableMiddle" style="width: 150px">
+                  <div>
+                    <div style="width: 30px">
+                      <img src="../../../assets/icons/folder-symlink.svg">
+                    </div>
+                    <div style="width: 30px">
+                      <img src="../../../assets/icons/file-earmark-richtext.svg">
+                    </div>
+                    <div style="width: 30px">
+                      <img src="../../../assets/icons/handbag.svg">
+                    </div>
+                    <div style="width: 30px">
+                      <img src="../../../assets/icons/pencil.svg">
+                    </div>
+                    <div style="width: auto">
+                      <img src="../../../assets/icons/eye.svg">
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+
+
+
+
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>PRODUCTS</h3>
+      <div class="m_tableMiddle">
+        <div>
+          <div style="width: 30px;">
+            <img [hidden]="foldersManagerController.addFolder.length !== 0" src="../../../assets/icons/plus-circle.svg">
+            <img [hidden]="foldersManagerController.addFolder.length === 0" src="../../../assets/icons/save.svg">
+          </div>
+          <div><input placeholder="Add new folder" [value]="foldersManagerController.addFolder"
+              [(ngModel)]="foldersManagerController.addFolder" type="text" class="form-control" id="usr"></div>
+        </div>
+      </div>
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <h3>ARTICLES</h3>
+      <div class="m_tableMiddle">
+        <div>
+          <div style="width: 30px;">
+            <img [hidden]="foldersManagerController.addFolder.length !== 0" src="../../../assets/icons/plus-circle.svg">
+            <img [hidden]="foldersManagerController.addFolder.length === 0" src="../../../assets/icons/save.svg">
+          </div>
+          <div><input placeholder="Add new folder" [value]="foldersManagerController.addFolder"
+              [(ngModel)]="foldersManagerController.addFolder" type="text" class="form-control" id="usr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
